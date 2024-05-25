@@ -1,4 +1,5 @@
 import type { Response as ExpressResponse } from "express";
+import type { ZodError } from "zod";
 
 enum HttpStatusCode {
   OK = 200,
@@ -20,6 +21,8 @@ export const send = (res: ExpressResponse) => {
     notFound: () => res.status(HttpStatusCode.NotFound).send("Not found."),
     badRequest: (msg: string) =>
       res.status(HttpStatusCode.BadRequest).send(msg),
+    badRequestZod: (data: ZodError) =>
+      res.status(HttpStatusCode.BadRequest).json(data.issues),
     notImplemented: (msg: string) =>
       res.status(HttpStatusCode.NotImplemented).send("Not implemented."),
   };
