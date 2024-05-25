@@ -2,12 +2,18 @@
   "name": "p4-backend-2024",
   "module": "index.ts",
   "type": "module",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
-    "prisma": "^5.14.0"
+    "prisma": "^5.14.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -16,6 +22,7 @@
     "@prisma/client": "5.14.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "docker": "^1.0.0"
   }
 }
