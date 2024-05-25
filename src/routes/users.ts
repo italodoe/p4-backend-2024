@@ -1,5 +1,5 @@
 import { db } from "../data/db";
-import { Router } from "express";
+import { Router, request, response } from "express";
 import { z } from "zod";
 import { catchError } from "../errors";
 import { send } from "../response";
@@ -8,6 +8,7 @@ import {
   findUserByEmail,
   findUserById,
   findUserByNick,
+  newUser,
 } from "../data/userRepository";
 
 const router = Router();
@@ -21,14 +22,18 @@ const emailParamsSchema = z.object({
   email: z.coerce.string().email().min(5),
 });
 
+const userBodySchema = z.object({
+  nick: z.string().min(5).max(255),
+  fullName: z.string().min(5).max(255),
+  email: z.coerce.string().email().min(5),
+  admin: z.coerce.boolean(),
+});
+
 /*
 GET     /users/
-POST    /users/
 GET     /users/id/:id
 GET     /users/nick/:nick
 GET     /users/email/:email
-PUT     /users/id/:id
-DELETE  /users/id/:id
 */
 
 router.get(
@@ -65,5 +70,24 @@ router.get(
     send(response).ok(user);
   })
 );
+
+
+/*
+POST    /users/
+PUT     /users/id/:id
+PUT     /users/nick/:nick
+PUT     /users/email/:email
+DELETE  /users/id/:id
+*/
+
+router.post(
+  "/",
+  catchError(async (request, response, next) => {
+    const { email, nick, fullName, admin } = userBodySchema.parse(request.body);
+    const user = await newUser(email, nick, fullName, admin);
+    send(response).ok(user);
+  })
+);
+
 
 export default router;
