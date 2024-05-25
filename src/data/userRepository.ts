@@ -18,3 +18,18 @@ export const newUser = async (
       },
     });
   };
+
+
+/*
+  Find
+*/
+
+export const findAllUsers = async () => {
+    return await db.user.findMany({
+      include: {
+        videos: true,
+        comments: true,
+      },
+    });
+  };
+  
