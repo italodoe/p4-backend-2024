@@ -1,0 +1,75 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "backend-p4-v1",
+    "collectionId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+    "dateExported": "2024-05-25T19:35:50.081Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "users",
+            "containerId": "",
+            "created": "2024-05-25T19:19:16.444Z",
+            "sortNum": 10000,
+            "settings": {
+                "docs": "###\n```\n/users \n/users/id/:id\n/users/nick/:nick\n/users/email/:email\n```"
+            }
+        }
+    ],
+    "requests": [
+        {
+            "_id": "6c71fb4f-fc13-479b-bf8e-536d9dd66bcc",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users",
+            "url": "/users",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-25T19:18:56.648Z",
+            "modified": "2024-05-25T19:18:56.648Z",
+            "headers": []
+        },
+        {
+            "_id": "080ea4cf-0d95-41ba-91c9-a791796899ec",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users/id/:id",
+            "url": "/users/id/12",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-25T19:25:05.339Z",
+            "modified": "2024-05-25T19:26:17.842Z",
+            "headers": []
+        },
+        {
+            "_id": "347025ff-5e72-4ab5-b454-68f341359029",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users/nick/:nick",
+            "url": "/users/nick/1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-25T19:23:08.224Z",
+            "modified": "2024-05-25T19:28:48.729Z",
+            "headers": []
+        },
+        {
+            "_id": "030c698c-81e6-4b7b-add7-179bca91903e",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users/email/:email",
+            "url": "/users/email/william.moore@nerv.net",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-05-25T19:33:20.828Z",
+            "modified": "2024-05-25T19:35:26.747Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:8888"
+        }
+    },
+    "ref": "8OEks5kbQ6IitUxAN7LIBlOB4DA6lzQ99xEwVOISMwIW22rlCTQvXxJFEf-ZWmu8JAJIy36R3VbRLuSwLK0Uaw"
+}
