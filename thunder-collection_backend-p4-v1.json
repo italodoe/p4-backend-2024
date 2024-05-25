@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "backend-p4-v1",
     "collectionId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
-    "dateExported": "2024-05-25T19:35:50.081Z",
+    "dateExported": "2024-05-25T20:26:12.584Z",
     "version": "1.2",
     "folders": [
         {
@@ -14,6 +14,13 @@
             "settings": {
                 "docs": "###\n```\n/users \n/users/id/:id\n/users/nick/:nick\n/users/email/:email\n```"
             }
+        },
+        {
+            "_id": "2d5ffa8e-9816-4690-a7ee-079237949ec6",
+            "name": "errors",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "created": "2024-05-25T19:46:22.822Z",
+            "sortNum": 20000
         }
     ],
     "requests": [
@@ -46,11 +53,11 @@
             "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
             "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
             "name": "/users/nick/:nick",
-            "url": "/users/nick/1",
+            "url": "/users/nick/aGarcia",
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-05-25T19:23:08.224Z",
-            "modified": "2024-05-25T19:28:48.729Z",
+            "modified": "2024-05-25T19:43:42.097Z",
             "headers": []
         },
         {
@@ -64,6 +71,42 @@
             "created": "2024-05-25T19:33:20.828Z",
             "modified": "2024-05-25T19:35:26.747Z",
             "headers": []
+        },
+        {
+            "_id": "49c62120-74d6-432f-bfe0-03abd8440c07",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "2d5ffa8e-9816-4690-a7ee-079237949ec6",
+            "name": "/users/id/:id-not-valid 400",
+            "url": "/users/id/fake",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-05-25T19:47:39.244Z",
+            "modified": "2024-05-25T19:49:07.193Z",
+            "headers": []
+        },
+        {
+            "_id": "67be808a-6aae-48b5-ab64-c6408c5f6720",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "2d5ffa8e-9816-4690-a7ee-079237949ec6",
+            "name": "/users/nick/:nick-invalid 400",
+            "url": "/users/nick/__",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-05-25T20:03:58.931Z",
+            "modified": "2024-05-25T20:04:16.634Z",
+            "headers": []
+        },
+        {
+            "_id": "7cfed981-d7f2-42ac-b42a-0110ed5f5841",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "2d5ffa8e-9816-4690-a7ee-079237949ec6",
+            "name": "/user/email/:email-invalid 400",
+            "url": "/users/email/william.moorenerv.net",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-05-25T20:15:19.521Z",
+            "modified": "2024-05-25T20:15:32.384Z",
+            "headers": []
         }
     ],
     "settings": {
@@ -71,5 +114,5 @@
             "baseUrl": "http://localhost:8888"
         }
     },
-    "ref": "8OEks5kbQ6IitUxAN7LIBlOB4DA6lzQ99xEwVOISMwIW22rlCTQvXxJFEf-ZWmu8JAJIy36R3VbRLuSwLK0Uaw"
+    "ref": "8OEks5kbQ6IitUxAN7LIBnHkYaaCXju8nHkkvHSFUrh9N8ds58NN51z6XS7sxV-2CES037W7gfJpP2ED6wo37A"
 }
