@@ -17,6 +17,10 @@ export const defaultErrorHandler: ErrorRequestHandler = (
       console.error("err ", err);
       return send(res).badRequestZod(err);
 
+    case "PrismaClientKnownRequestError":
+      console.error("err ", err);
+      return send(res).badRequestPrisma(err);
+
     default:
       return send(res).internalError("Internal error");
   }

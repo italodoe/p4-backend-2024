@@ -1,3 +1,4 @@
+import type { Prisma } from "@prisma/client";
 import type { Response as ExpressResponse } from "express";
 import type { ZodError } from "zod";
 
@@ -23,6 +24,8 @@ export const send = (res: ExpressResponse) => {
       res.status(HttpStatusCode.BadRequest).send(msg),
     badRequestZod: (data: ZodError) =>
       res.status(HttpStatusCode.BadRequest).json(data.issues),
+    badRequestPrisma: (data: Prisma.PrismaClientKnownRequestError) =>
+      res.status(HttpStatusCode.BadRequest).json(data.meta),
     notImplemented: (msg: string) =>
       res.status(HttpStatusCode.NotImplemented).send("Not implemented."),
   };
