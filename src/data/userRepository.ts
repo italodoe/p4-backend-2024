@@ -56,3 +56,68 @@ export const findUserByEmail = async (
     where: { email },
   });
 };
+
+
+/*
+  Update
+*/
+
+export const updateUserById = async (
+  userId: number,
+  email: string,
+  nick: string,
+  fullName: string|null,
+  admin: boolean = false,
+  videos = null,
+  comments = null
+): Promise<UserOutput | null> => {
+  return await db.user.update({
+    where: { userId },
+    data: {
+      email,
+      nick,
+      fullName,
+      admin,
+    },
+  });
+};
+
+export const updateUserByEmail = async (
+  email: string,
+  newEmail: string,
+  nick: string,
+  fullName: string|null,
+  admin: boolean = false,
+  videos = null,
+  comments = null
+): Promise<UserOutput | null> => {
+  return await db.user.update({
+    where: { email },
+    data: {
+      email: newEmail,
+      nick,
+      fullName,
+      admin,
+    },
+  });
+};
+
+export const updateUserByNick = async (
+  nick: string,
+  newNick: string,
+  email: string,
+  fullName: string|null,
+  admin: boolean = false,
+  videos = null,
+  comments = null
+): Promise<UserOutput | null> => {
+  return await db.user.update({
+    where: { nick },
+    data: {
+      email,
+      nick: newNick,
+      fullName,
+      admin,
+    },
+  });
+};
