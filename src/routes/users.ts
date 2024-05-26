@@ -118,7 +118,6 @@ router.put(
   })
 );
 
-
 /*
 DELETE  /users/id/:id
 DELETE  /users/nick/:nick
@@ -141,6 +140,5 @@ router.delete(
     send(response).ok(user);
   })
 );
-
 
 export default router;
