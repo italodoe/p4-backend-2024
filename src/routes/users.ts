@@ -4,11 +4,15 @@ import { z } from "zod";
 import { catchError } from "../errors";
 import { send } from "../response";
 import {
+  deleteUserById,
+  deleteUserByNick,
   findAllUsers,
   findUserByEmail,
   findUserById,
   findUserByNick,
   newUser,
+  updateUserById,
+  updateUserByNick,
 } from "../data/userRepository";
 
 const router = Router();
@@ -71,13 +75,8 @@ router.get(
   })
 );
 
-
 /*
 POST    /users/
-PUT     /users/id/:id
-PUT     /users/nick/:nick
-PUT     /users/email/:email
-DELETE  /users/id/:id
 */
 
 router.post(
@@ -85,6 +84,60 @@ router.post(
   catchError(async (request, response, next) => {
     const { email, nick, fullName, admin } = userBodySchema.parse(request.body);
     const user = await newUser(email, nick, fullName, admin);
+    send(response).ok(user);
+  })
+);
+
+/*
+PUT     /users/id/:id
+PUT     /users/nick/:nick
+*/
+
+router.put(
+  "/id/:id",
+  catchError(async (request, response, next) => {
+    const { id: userId } = idParamsSchema.parse(request.params);
+    const { email, nick, fullName, admin } = userBodySchema.parse(request.body);
+    const user = await updateUserById(userId, email, nick, fullName, admin);
+    send(response).ok(user);
+  })
+);
+
+router.put(
+  "/nick/:nick",
+  catchError(async (request, response, next) => {
+    const { nick } = nickParamsSchema.parse(request.params);
+    const {
+      email,
+      nick: newNick,
+      fullName,
+      admin,
+    } = userBodySchema.parse(request.body);
+    const user = await updateUserByNick(nick, newNick, email, fullName, admin);
+    send(response).ok(user);
+  })
+);
+
+
+/*
+DELETE  /users/id/:id
+DELETE  /users/nick/:nick
+*/
+
+router.delete(
+  "/id/:id",
+  catchError(async (request, response, next) => {
+    const { id: userId } = idParamsSchema.parse(request.params);
+    const user = await deleteUserById(userId);
+    send(response).ok(user);
+  })
+);
+
+router.delete(
+  "/nick/:nick",
+  catchError(async (request, response, next) => {
+    const { nick } = nickParamsSchema.parse(request.params);
+    const user = await deleteUserByNick(nick);
     send(response).ok(user);
   })
 );
