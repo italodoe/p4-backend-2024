@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "backend-p4-v1",
     "collectionId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
-    "dateExported": "2024-05-25T20:26:12.584Z",
+    "dateExported": "2024-05-26T15:45:23.164Z",
     "version": "1.2",
     "folders": [
         {
@@ -73,6 +73,57 @@
             "headers": []
         },
         {
+            "_id": "83f49b41-817c-4f4a-91f8-cb965325c7a1",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users",
+            "url": "/users",
+            "method": "POST",
+            "sortNum": 55000,
+            "created": "2024-05-25T20:53:38.505Z",
+            "modified": "2024-05-26T15:11:22.184Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"emilythomas@example.com\",\n  \"nick\": \"ethomas\",\n  \"fullName\": \"Emily Thomas\",\n  \"admin\": false\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "0fcb6a3c-06df-4894-881d-8790a6be1563",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users/nick/:nick",
+            "url": "/users/nick/ethomas",
+            "method": "PUT",
+            "sortNum": 57500,
+            "created": "2024-05-25T21:59:29.361Z",
+            "modified": "2024-05-26T15:11:21.441Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"emilythomas2@example.com\",\n  \"nick\": \"ethomas\",\n  \"fullName\": \"Emily Thomas\",\n  \"admin\": false\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "bd71eea1-58d8-432e-a18e-826bad94b065",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users/id/:id",
+            "url": "/users/id/1",
+            "method": "PUT",
+            "sortNum": 58750,
+            "created": "2024-05-25T21:53:45.547Z",
+            "modified": "2024-05-26T15:11:27.193Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"william.davis@example.com\",\n  \"nick\": \"wdavis\",\n  \"fullName\": \"William Davis\",\n  \"admin\": true\n}",
+                "form": []
+            }
+        },
+        {
             "_id": "49c62120-74d6-432f-bfe0-03abd8440c07",
             "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
             "containerId": "2d5ffa8e-9816-4690-a7ee-079237949ec6",
@@ -82,6 +133,18 @@
             "sortNum": 60000,
             "created": "2024-05-25T19:47:39.244Z",
             "modified": "2024-05-25T19:49:07.193Z",
+            "headers": []
+        },
+        {
+            "_id": "bb1736b1-de1c-467a-a832-60af2eae1235",
+            "colId": "f580ce62-c7c7-47a4-8e71-c9979136baf4",
+            "containerId": "f2867fb1-e786-457c-aacb-c451604af635",
+            "name": "/users/nick/:nick",
+            "url": "/users/nick/ethomas",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-05-26T14:53:41.196Z",
+            "modified": "2024-05-26T15:11:32.290Z",
             "headers": []
         },
         {
@@ -114,5 +177,5 @@
             "baseUrl": "http://localhost:8888"
         }
     },
-    "ref": "8OEks5kbQ6IitUxAN7LIBnHkYaaCXju8nHkkvHSFUrh9N8ds58NN51z6XS7sxV-2CES037W7gfJpP2ED6wo37A"
+    "ref": "8OEks5kbQ6IitUxAN7LIBqah3tGMGQ_NZ7dv4yk5ut0exS-rg5Lty8Q18XlAtjhIoNqijpfYKzTrW9mY1crtUg"
 }
