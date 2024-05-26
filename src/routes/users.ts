@@ -27,8 +27,8 @@ const emailParamsSchema = z.object({
 });
 
 const userBodySchema = z.object({
-  nick: z.string().min(5).max(255),
-  fullName: z.string().min(5).max(255),
+  nick: z.coerce.string().min(5).max(255),
+  fullName: z.coerce.string().min(5).max(255),
   email: z.coerce.string().email().min(5),
   admin: z.coerce.boolean(),
 });
