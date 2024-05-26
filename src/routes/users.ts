@@ -20,14 +20,14 @@ const idParamsSchema = z.object({
   id: z.coerce.number(),
 });
 const nickParamsSchema = z.object({
-  nick: z.coerce.string().min(5).max(255),
+  nick: z.coerce.string().min(3).max(255),
 });
 const emailParamsSchema = z.object({
   email: z.coerce.string().email().min(5),
 });
 
 const userBodySchema = z.object({
-  nick: z.coerce.string().min(5).max(255),
+  nick: z.coerce.string().min(3).max(255),
   fullName: z.coerce.string().min(5).max(255),
   email: z.coerce.string().email().min(5),
   admin: z.coerce.boolean(),
