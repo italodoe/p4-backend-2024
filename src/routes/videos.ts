@@ -28,7 +28,7 @@ const idParamsSchema = z.object({
 });
 
 const nickParamsSchema = z.object({
-  nick: z.coerce.string().min(5).max(255),
+  nick: z.coerce.string().min(3).max(255),
 });
 
 const emailParamsSchema = z.object({
