@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import userRoutes from "./routes/users"
+import videoRoutes from "./routes/videos"
 import { defaultErrorHandler } from "./errors";
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(morgan("dev"));
 app.use(express.json()); 
 
 app.use("/users", userRoutes)
+app.use("/videos", videoRoutes)
 app.use(defaultErrorHandler)
 
 
