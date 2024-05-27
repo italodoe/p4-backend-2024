@@ -12,16 +12,23 @@ import {
   findAllCommentsByAuthorId,
   findAllCommentsByAuthorNick,
   findAllCommentsByParent,
+  findAllCommentsByVideoAuthor,
   findAllCommentsByVideoId,
   findAllCommentsByVideoUrl,
   findCommentById,
   newComment,
+  updateCommentByAuthorVideo,
   updateCommentById,
 } from "../data/commentRepository";
 
 const router = Router();
 const idParamsSchema = z.object({
   id: z.coerce.number(),
+});
+
+const videoIdAuthorIdParamsSchema = z.object({
+  videoId: z.coerce.number(),
+  authorId: z.coerce.number(),
 });
 
 const nickParamsSchema = z.object({
@@ -39,6 +46,11 @@ const urlCodeParamsSchema = z.object({
 const commentBodySchema = z.object({
   authorId: z.coerce.number(),
   videoId: z.coerce.number(),
+  text: z.coerce.string().min(3).max(255),
+  parentId: z.coerce.number().nullish(),
+});
+
+const commentPutBodySchema = z.object({
   text: z.coerce.string().min(3).max(255),
   parentId: z.coerce.number().nullish(),
 });
@@ -64,7 +76,7 @@ router.get(
 );
 
 router.get(
-  "/id/:id",
+  "/:id",
   catchError(async (request, response, next) => {
     const { id: commentId } = idParamsSchema.parse(request.params);
     const comment = await findCommentById(commentId);
@@ -125,7 +137,17 @@ router.get(
     send(response).ok(comments);
   })
 );
-// TODO:  /comments/video/:videoId/author/:authorId
+
+router.get(
+  "/video/:videoId/author/:authorId",
+  catchError(async (request, response) => {
+    const { videoId, authorId } = videoIdAuthorIdParamsSchema.parse(
+      request.params
+    );
+    const comments = await findAllCommentsByVideoAuthor(videoId, authorId);
+    send(response).ok(comments);
+  })
+);
 
 /*
 POST    /comments/
@@ -148,16 +170,25 @@ PUT     /comments/video/:videoId/author/:authorId
 */
 
 router.put(
-  "/id/:id",
+  "/:id",
   catchError(async (request, response, next) => {
     const { id: commentId } = idParamsSchema.parse(request.params);
-    const { text, parentId } = commentBodySchema.parse(request.body);
+    const { text, parentId } = commentPutBodySchema.parse(request.body);
     const comment = await updateCommentById(commentId, text, parentId ?? null);
     send(response).ok(comment);
   })
 );
 
-// TODO:  /comments/video/:videoId/author/:authorId
+router.put(
+  "/video/:videoId/author/:authorId",
+  catchError(async (request, response, next) => {
+    const { videoId, authorId } = videoIdAuthorIdParamsSchema.parse(request.params);
+    const { text, parentId } = commentPutBodySchema.parse(request.body);
+    const comment = await updateCommentByAuthorVideo(videoId, authorId, text, parentId ?? null);
+    send(response).ok(comment);
+  })
+);
+
 
 /*
 DELETE  /comments/id/:id
