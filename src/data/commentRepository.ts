@@ -199,7 +199,6 @@ export const updateCommentById = async (
 };
 
 export const updateCommentByAuthorVideo = async (
-  commentId: number,
   videoId: number,
   authorId: number | null,
   text: string,
@@ -207,7 +206,7 @@ export const updateCommentByAuthorVideo = async (
   comments = null
 ) => {
   return await db.comment.updateMany({
-    where: { commentId, videoId, authorId },
+    where: { videoId, authorId },
     data: {
       text,
       parentId,
