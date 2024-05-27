@@ -50,6 +50,11 @@ const videoBodySchema = z.object({
   title: z.coerce.string().min(3).max(255),
   description: z.coerce.string().min(3).max(255).nullish(),
 });
+const videoPutBodySchema = z.object({
+  url: z.string().regex(/^[a-zA-Z0-9_-]{11}$/),
+  title: z.coerce.string().min(3).max(255),
+  description: z.coerce.string().min(3).max(255).nullish(),
+});
 
 /*
 GET     /videos/
@@ -159,7 +164,7 @@ router.put(
   "/id/:id",
   catchError(async (request, response, next) => {
     const { id: videoId } = idParamsSchema.parse(request.params);
-    const { url, title, description } = videoBodySchema.parse(request.body);
+    const { url, title, description } = videoPutBodySchema.parse(request.body);
     const video = await updateVideoById(
       videoId,
       url,
@@ -178,7 +183,7 @@ router.put(
       url: newUrl,
       title,
       description,
-    } = videoBodySchema.parse(request.body);
+    } = videoPutBodySchema.parse(request.body);
     const video = await updateVideoByUrl(
       url,
       newUrl,
