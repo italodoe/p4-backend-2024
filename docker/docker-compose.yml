@@ -5,11 +5,11 @@ services:
     environment:
       - POSTGRES_USER=prismauser
       - POSTGRES_PASSWORD=prismapass
-      - POSTGRES_DB=p3
+      - POSTGRES_DB=p4
     ports:
       - "5432:5432"
     volumes:
       - data:/var/lib/postgresql/data
-    container_name: P3-postgres
+    container_name: P4-postgres
 volumes:
   data:
