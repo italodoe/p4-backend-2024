@@ -9,8 +9,8 @@ To install and run the project, follow these steps:
 
 1. Run `bun install` to install dependencies.
 2. Run `docker-compose -f docker/docker-compose.yml up -d` to start Docker containers.
-3. Run `bunx prisma db push` to apply database migrations.
-4. Run `bunx prisma db seed` to seed the database.
+3. Run `bunx prisma db push` or `bunx tsx prisma db push` to apply database migrations.
+4. Run `bunx prisma db seed` or `bunx tsx prisma db seed` to seed the database.
 
 
 ## Database 
@@ -29,9 +29,13 @@ rm -rf prisma/dev.db
 
 # (Optional) Push any pending migrations to the database
 bunx prisma db push
+or
+bunx tsx prisma db push
 
 # Seed the database with initial data
-bun prisma/seed.ts
+bunx prisma/seed.ts 
+or 
+bunx tsx prisma/seed.ts
 ```
 
 ### Database docker postgres Seeding
@@ -46,9 +50,13 @@ url      = env("DATABASE_URL")
  ```bash
 # Push any pending migrations to the database
 bunx prisma db push
+or
+bunx tsx prisma db push
 
 # Seed the database with initial data
-bun prisma/seed.ts
+bunx prisma/seed.ts 
+or 
+bunx tsx prisma/seed.ts
 ```
 
 
@@ -65,9 +73,13 @@ directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
  ```bash
 # Push any pending migrations to the database
 bunx prisma db push
+or
+bunx tsx prisma db push
 
 # Seed the database with initial data
-bun prisma/seed.ts
+bunx prisma/seed.ts 
+or 
+bunx tsx prisma/seed.ts
 ```
 
 
