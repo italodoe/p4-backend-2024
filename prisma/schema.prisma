@@ -12,13 +12,12 @@ datasource db {
   // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 
   // postgres docker
-  // provider = "postgresql"
-  // url      = env("DATABASE_URL")
-
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 
   // sqlite dev
-  provider = "sqlite"
-  url      = env("DATABASE_URL_SQLITE")
+  // provider = "sqlite"
+  // url      = env("DATABASE_URL_SQLITE")
 }
 
 model User {
