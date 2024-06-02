@@ -6,9 +6,19 @@ generator client {
 }
 
 datasource db {
+  // postgres vercel
   // provider = "postgresql"
+  // url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+
+  // postgres docker
+  // provider = "postgresql"
+  // url      = env("DATABASE_URL")
+
+
+  // sqlite dev
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL_SQLITE")
 }
 
 model User {
