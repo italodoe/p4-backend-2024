@@ -125,7 +125,6 @@ router.get(
   catchError(async (request, response) => {
     const { title, description } = searchParamsSchema.parse(request.query);
     let videos;
-    console.log(title, description, typeof title);
     if (title) {
       videos = await findVideoByTitle(title);
     } else if (description) {
