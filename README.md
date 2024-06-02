@@ -21,7 +21,7 @@ Sqlite db. To seed the database, follow these steps:
 ```bash
 ## Add to schema.prisma
  provider = "sqlite"
- url      = env("DATABASE_URL")
+ url      = env("DATABASE_URL_SQLITE")
  ```
  ```bash
 # (Optional) Delete the current development database file
